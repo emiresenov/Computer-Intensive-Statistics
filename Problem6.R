@@ -2,11 +2,13 @@
 alpha = 2
 beta = 3
 # Number of draws
-n = 30#100000
+n = 11#100000
 # Draw a bunch of uniforms
 U = runif(n)
 # Apply to inverse of the Pareto 
 y = alpha/((1-U)^(1/beta))
+
+print(y)
 
 betaGrid = seq(0.1, 10, length=10000)
 logLike = n*log(betaGrid) + n*betaGrid*log(alpha) - (1+betaGrid)*sum(log(y))
@@ -33,3 +35,13 @@ print(sdBetaHatBoot)
 print(c(betaHat + qnorm(0.025)*sdBetaHat, betaHat + qnorm(0.975)*sdBetaHat))
 print(c(betaHat + qnorm(0.025)*sdBetaHatBoot, betaHat + qnorm(0.975)*sdBetaHatBoot))
 print(c(as.numeric(quantile(betaHatBoot,0.025)), as.numeric(quantile(betaHatBoot,0.975))))
+
+
+
+
+
+
+
+
+
+  
